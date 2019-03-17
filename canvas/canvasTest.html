@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--画板-->
+<!-- 当浏览器不支持的时候才会出现文字 -->
+<canvas id="canvas" style="background-color: whitesmoke;">您当前的版本不支持</canvas>
+
+<script type="text/javascript">
+
+    // 拿到画板
+    let canvas = document.getElementById('canvas');
+    canvas.width = 1980;
+    canvas.height = 1020;
+
+    // 拿到上下文
+    let context = canvas.getContext('2d');
+    let color = '#FF6EB4';
+    // 设置线条的颜色
+    context.strokeStyle = color;
+    // 设置线条的宽度
+    context.lineWidth = 5;
+
+    // 绘制直线
+    context.beginPath();
+    // 起点
+    context.moveTo(200, 100);
+    // 终点
+    context.lineTo(500, 200);
+    context.closePath();
+    context.stroke();
+
+    /*
+    // 绘制弧线
+    context.beginPath();
+    /!**
+     * params
+     * 圆心x坐标
+     * 圆心y坐标
+     * 半径
+     * 起始角度
+     * 结束角度
+     * 方向，true 逆时针   false 顺时针  默认false，不写表示false
+     *!/
+    context.arc(200, 200, 100, 0, Math.PI / 2, false);
+    context.closePath();
+    context.stroke();
+
+    context.strokeStyle = color;
+    context.arc(200, 200, 100, 0, Math.PI / 2, true);
+    context.closePath();
+    context.stroke();*/
+</script>
+
+</body>
+</html>
