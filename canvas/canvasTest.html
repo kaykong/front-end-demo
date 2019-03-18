@@ -12,14 +12,35 @@
 <script type="text/javascript">
 
     // 拿到画板
-    let canvas = document.getElementById('canvas');
+    var canvas = document.getElementById('canvas');
     canvas.width = 1024;
     canvas.height = 768;
+    var pink = '#FF6EB4';
 
     // 拿到上下文
-    let context = canvas.getContext('2d');
-    let pink = '#FF6EB4';
-    // 设置线条的颜色
+    var context = canvas.getContext('2d');
+    //context.strokeStyle = pink
+    context.lineWidth = 2
+    var X = 200;
+    var Y = 200;
+
+
+
+    var forward = function (len) {
+        context.beginPath()
+        context.moveTo(X, Y)
+        context.lineTo(X, Y + len)
+        context.stroke()
+    };
+
+    var setPenColor = function(color) {
+        context.strokeStyle = color;
+    }
+
+    forward(20)
+
+
+    /*// 设置线条的颜色
     context.strokeStyle = pink;
     // 设置线条的宽度
     context.lineWidth = 5;
@@ -41,7 +62,7 @@
     context.moveTo(500, 100)
     context.lineTo(800, 200)
     context.closePath()
-    context.stroke()
+    context.stroke()*/
 
     /**
      * 笔记:
