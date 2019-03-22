@@ -79,3 +79,83 @@ var uppercase = function (s) {
 
     return result
 }
+/*
+作业 5
+实现一个叫 凯撒加密 的加密算法, 描述如下
+对于一个字符串, 整体移位, 就是加密
+以右移 1 位为例
+原始信息 'afz' 会被加密为 'bga'
+实现 encode1 函数, 把明文加密成密码并返回
+右移 1 位
+*/
+
+
+/**
+ * 将字符右移 n 位
+ *
+ * @param char
+ * @param n
+ */
+var shiftedChar = function (char, n) {
+
+    //大写 or 小写
+    let index = find(lower, char)
+    if (index !== -1) {
+        //小写字符
+        let i = (index + n + 26) % 26
+        char = lower[i]
+    } else {
+        index = find(upper, char)
+        if (index !== -1) {
+            //大写字符
+            let i = (index + n + 26) % 26
+            char = upper[i]
+        }
+    }
+
+    return char
+}
+
+var shiftedChar_test = function (c, n) {
+    return shiftedChar(c, n)
+}
+
+var encryption = function (string, n) {
+
+    if (string === undefined || string.length === 0) {
+        return string
+    }
+
+    let result = "";
+    for (let i = 0; i < string.length; i++) {
+        let c = shiftedChar(string[i], n)
+        //log("encryption:", string[i], '>>', n, '>>', c)
+        result += c
+    }
+
+    return result
+}
+
+var encryption_test = function () {
+    return encryption("abc123  OO", 1)
+}
+
+var var_test = function () {
+    for (var i = 0; i < 4; i++) {
+        log("fori: ", i)
+    }
+
+    console.log(i)
+}
+
+var code = 'VRPHWLPHV L ZDQW WR FKDW ZLWK BRX,EXW L KDYH QR UHDVRQ WR FKDW ZLWK BRX'
+var decryption = function () {
+    for (let i = 1; i < 27; i++) {
+        let s = encryption(code, i)
+        log("解密:" , i, s)
+    }
+}
+
+var decryption_test = function () {
+    decryption()
+}
