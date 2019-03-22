@@ -353,19 +353,9 @@ var replace = function(s, oldString, newString) {
     return result
 }
 
-var log = function() {
-    console.log.apply(console, arguments)
-}
-var ensure = function(condition, message) {
-    // 在条件不成立的时候, 输出 message
-    if(!condition) {
-        log('*** 测试失败:', message)
-    } else {
-        log('测试成功')
-    }
-}
 var test_replace = function() {
     ensure(replace('hello, world', 'world', 'gua') === 'hello, gua', 'replace 测试 1')
     ensure(replace('hello', 'world', 'gua') === 'hello', 'replace 测试 2')
     ensure(replace('hello', 'll', 'gua') === 'heguao', 'replace 测试 3')
+    return '测试结束'
 }
